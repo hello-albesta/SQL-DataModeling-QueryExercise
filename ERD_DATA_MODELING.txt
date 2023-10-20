@@ -1,0 +1,65 @@
+1.
+UNF:
+Car_Dealership(Salesperson, Manufacturer, Model, Year, Color, Price)
+
+
+1NF:
+Car_Dealership(Car_Dealership_Id, Salesperson)
+Car_Dealership_Detail(Car_Dealership_Detail_Id, Car_Dealership_Id, Manufacturer, Model, Year, Color, Price)
+
+
+2NF:
+Car_Dealership(Car_Dealership_Id, Salesperson_Id, Manufacturer_Id, totalprice)
+Car_Dealership_Detail(Car_Dealership_Detail_Id, Car_Dealership_Id, Model, Year, Color, Price)
+
+Salesperson(Salesperson_id, Name, Age, Address, Phone)
+
+Manufacture(Manufacturer_Id, Name)
+
+
+3NF:
+Car_Dealership(Car_Dealership_Id, Salesperson_Id, Manufacturer_Id, totalprice)
+Car_Dealership_Detail(Car_Dealership_Detail_Id, Car_Dealership_Id, Model, Year, Color, Price)
+
+Salesperson(Salesperson_id, Name)
+Salesperson_Detail(Salesperson_id, Address, Phone)
+
+Manufacture(Manufacturer_Id, Manufacturer_Name)
+
+
+
+==================================================================================================================
+
+
+
+2.
+UNF:
+School(Student_ID, Student_Name, Student_Address, Student_Phone, Teacher_Name, Student_Class, Student_Grade)
+
+
+1NF:
+School(School_iD, Teacher_Name)
+
+Student(Student_ID, School_ID, Student_Name, Student_Address, Student_Phone, Student_Class, Student_Grade)
+
+
+2NF:
+School(School_ID, School_Type, School_Name, School_Description)
+
+Student(Student_ID, School_ID, Student_Name, Student_Address, Student_Phone, Student_Class, Student_Grade, Student_Description)
+
+Teacher(Teacher_ID, School_ID, Teacher_Name, Teacher_Address, Teacher_Phone, Teacher_Class, Teacher_Description)
+
+
+3NF:
+School(School_ID, School_Type_ID, School_Name, School_Rating, School_Description)
+School_Type(SchoolType_ID, School_Type_Name, School_Type_Description)
+
+Class(Class_ID, School_ID, Class_Type_ID, Class_Name, Class_Year, Class_Description)
+Class_Type(Class_Type_ID, Class_Type_Name, Class_Type_Description)
+
+Student(Student_ID, School_ID, Student_NPSN, Student_Name, Student_Grade, Student_DOB, Student_Description)
+Student_Detail(Student_ID, Student_Address, Student_Phone)
+
+Teacher(Teacher_ID, Class_ID, Teacher_NUPTK, Teacher_Name, Teacher_DOB, Teacher_Description)
+Teacher_Detail(Teacher_ID, Teacher_Address, Teacher_Phone)

@@ -1,0 +1,54 @@
+STUDENT COURSE ERD NORMALIZATION CONCEPT
+By DANIEL ALBESTA
+EBEBEB
+NOTE:
+a. * => To mark as an ADDITIONAL ATTRIBUTE.
+a. ** => To mark as an ADDITIONAL TABLE.
+
+
+===========================================================================================================================================================================
+
+
+UNF:
+	StudentGradeReport (Student_No, Student_Name, Student_Major, Course_No, Course_Name, Instructor_No, Instructor_Name, Instructor_Location, Student_Grade)
+
+
+===========================================================================================================================================================================
+
+
+1NF:
+	StudentGradeReport (Student_No, Course_No, Student_Name, Student_Major, Student_Grade)
+
+	Course (Course_No, Course_Name, Instructor_No, Instructor_Name, Instructor_Location)
+
+
+===========================================================================================================================================================================
+
+
+2NF:
+	StudentGradeReport (Student_No, Student_Name, Student_Major, Student_Grade)
+
+	Course (Course_No, Student_No, Instructor_No, Course_Name)
+
+	Instructor (Instructor_No, Instructor_Name, Instructor_Location)
+
+
+===========================================================================================================================================================================
+
+
+3NF:
+	TrStudentGradeReport (Student_No, *Faculty_No, *Major_No, Student_Name, *Student_Gender, *Student_DOB, *Student_Description)
+
+	MsCourse (Course_No, Course_Name, *Course_Syllabus, *Course_Credit, *Course_Term_Conditions, *Course_Time_Duration, *Course_Description, *Course_Fee)
+
+	TrStudentCourse (Student_No, Course_No, Instructor_No, *Class_No, *Student_Course_Semester, *Student_Course_Datetime, Student_Grade) --:> ALT. 1
+	TrStudentCourse (*Student_Course_No, Student_No, Course_No, Instructor_No, *Class_No, *Student_Course_Semester, *Student_Course_Datetime, Student_Grade, *Student_Course_Description) --:> ALT. 2
+
+	MsInstructor (Instructor_No, *Faculty_No, Instructor_Name, *Instructor_Gender, *Instructior_DOB, Instructor_Location, *Instructor_Description)
+
+	**MsMajor (*Major_No, *Major_Name, *Major_Accreditation, *Major_Description) (ADDITIONAL TABLE ERD 3NF LEVEL)
+
+	**MsFaculty (*Faculty_No, *Faculty_Name, *Faculty_Location, *Faculty_Description) (ADDITIONAL TABLE ERD 3NF LEVEL)
+
+
+===========================================================================================================================================================================
